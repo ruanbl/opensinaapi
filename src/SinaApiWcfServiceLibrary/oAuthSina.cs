@@ -364,7 +364,7 @@ public class oAuthSina : oAuthBase
         }
         public string ParseHtml(string html)
         {
-            Regex htmlRegex = new Regex("<b>[0-9]{6}</b>");
+            Regex htmlRegex = new Regex("获取到授权码：[0-9]{6}");
             Match m = htmlRegex.Match(html);
             Regex pinRegex = new Regex("[0-9]{6}");
             Match m1 = pinRegex.Match(m.Value);
