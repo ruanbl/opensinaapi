@@ -1,10 +1,9 @@
-
-= OpenSinaApi 1.0 Beta 开发计划 =
+== OpenSinaApi 1.0 Beta 开发计划 ==
 
 将对之前的代码进行重构，去掉WCF相关的代码，建立一个独立的Class Library，方便生成Dll供其他项目引用。同时新版中将提供一个Sample项目，给出主要api方法的调用例子。
 
 
-= OpenSinaApi 1.0 Beta Feautres =
+== OpenSinaApi 1.0 Beta Feautres ==
 
 
   * 支持大部分新浪微博API方法
