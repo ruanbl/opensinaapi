@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sina.Api", "Sina.Api\Sina.Api.csproj", "{FFC3F90B-B7B0-410B-93F5-61437C4E18F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sina.SampleApp", "Sina.SampleApp\Sina.SampleApp.csproj", "{2003861A-5C8A-43B0-B636-3DD7E25033FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFC3F90B-B7B0-410B-93F5-61437C4E18F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFC3F90B-B7B0-410B-93F5-61437C4E18F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFC3F90B-B7B0-410B-93F5-61437C4E18F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFC3F90B-B7B0-410B-93F5-61437C4E18F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2003861A-5C8A-43B0-B636-3DD7E25033FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2003861A-5C8A-43B0-B636-3DD7E25033FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2003861A-5C8A-43B0-B636-3DD7E25033FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2003861A-5C8A-43B0-B636-3DD7E25033FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
