@@ -7,15 +7,15 @@ namespace Sina.Api
 {
     public class User
     {
-        //<id>1679214941</id> 
+        //<id>88888888</id> 
         //<screen_name>领客康健网</screen_name> 
         //<name>领客康健网</name> 
         //<province>50</province> 
         //<city>1000</city> 
         //<location>重庆</location> 
-        //<description>中国最好的健康管理社区！ 领客之后，必然康健！ 有关于减肥和营养的问题，领客康健一定尽力帮大家解决！</description> 
+        //<description></description> 
         //<url>http://www.ilinkee.com</url> 
-        //<profile_image_url>http://tp2.sinaimg.cn/1679214941/50/1275877715</profile_image_url> 
+        //<profile_image_url></profile_image_url> 
         //<domain>ilinkee</domain> 
         //<gender>f</gender> 
         //<followers_count>46</followers_count> 
@@ -63,6 +63,7 @@ namespace Sina.Api
         public int friends_count { get; set; }
         public int statuses_count { get; set; }
         public int favourites_count { get; set; }
+        public bool following { get; set; }
     }
 
     public class Status
