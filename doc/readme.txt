@@ -1,0 +1,1 @@
+使用时，请到Sina.SampleApp项目的Web.config里面修改app_key和secret_key为你自己的。
