@@ -35,7 +35,7 @@ namespace Sina.Api
             {
                 if (_consumerKey.Length == 0)
                 {
-                    _consumerKey = "appkey";//AppKey
+                    _consumerKey = ConfigurationSettings.AppSettings["app_key"];
                 }
                 return _consumerKey;
             }
@@ -48,7 +48,7 @@ namespace Sina.Api
             {
                 if (_consumerSecret.Length == 0)
                 {
-                    _consumerSecret = "SecretKey";//SecretKey
+                    _consumerSecret = ConfigurationSettings.AppSettings["secret_key"];
                 }
                 return _consumerSecret;
             }

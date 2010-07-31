@@ -23,8 +23,8 @@ namespace Sina.Api
 
         public void CheckToken()
         {
- 
-        }         
+
+        }
 
         //从新浪跳转回来，换取Access Token
         public bool oAuthWeb(string oauth_token, string oauth_verifier)
@@ -34,7 +34,7 @@ namespace Sina.Api
             return true;
         }
 
-        
+
         /// <summary>
         /// 这个是供桌面端应用调用的方法，需要用户提供用户名和密码
         /// </summary>
@@ -63,12 +63,27 @@ namespace Sina.Api
          **********************************************************************************************/
 
         /*最新公共微博*/
-        public string public_timeline()
+        public List<User> public_timeline()
         {
             try
             {
                 string url = "http://api.t.sina.com.cn/statuses/public_timeline." + Format;
-                return oAuthWebRequest(Method.GET, url, String.Empty);
+                string response = oAuthWebRequest(Method.GET, url, String.Empty);
+
+                var xmlDoc = new XmlDocument();
+                xmlDoc.LoadXml(response);
+                List<User> users = new List<User>();
+                XmlNodeList nodes = xmlDoc.GetElementsByTagName("user");
+                for (int i = 0; i < nodes.Count; i++)
+                {
+                    User u = new User();
+                    u.id = Convert.ToInt32(nodes[i].ChildNodes[0].InnerText);
+                    u.followers_count = Convert.ToInt32(nodes[i].ChildNodes[11].InnerText);
+                    u.friends_count = Convert.ToInt32(nodes[i].ChildNodes[12].InnerText);
+                    u.following = Convert.ToBoolean(nodes[i].ChildNodes[16].InnerText);
+                    users.Add(u);
+                }
+                return users;
             }
             catch
             { return null; }
@@ -85,7 +100,7 @@ namespace Sina.Api
         }
         /*用户发表微薄列表*/
         public string user_timeline()
-        {  
+        {
             try
             {
                 string url = "http://api.t.sina.com.cn/statuses/user_timeline." + Format;
@@ -228,7 +243,8 @@ namespace Sina.Api
             { return null; }
         }
 
-        /*关注某用户*/  //领客康健网官方微博帐号ID:1679214941
+        /*关注某用户*/
+        //领客康健网官方微博帐号ID:1679214941
         public string friendships_create(int user_id)
         {
             try
@@ -240,13 +256,68 @@ namespace Sina.Api
             { return null; }
         }
 
-        /*获取用户关注对象uid列表  */
-        public List<int> friends_ids(int user_id)
+        /*取消关注 */
+        public string friendships_destroy(int user_id)
+        {
+            try
+            {
+                string url = "http://api.t.sina.com.cn/friendships/destroy." + Format + "?";
+                return oAuthWebRequest(Method.POST, url, "user_id=" + user_id);
+            }
+            catch
+            { return null; }
+        }
+
+        /*是否关注某用户 ,user_a关注user_b返回true*/
+        public bool friendships_exists(int user_a, int user_b)
+        {
+            try
+            {
+                string url = "http://api.t.sina.com.cn/friendships/exists." + Format + "?";
+                string response = oAuthWebRequest(Method.POST, url, "user_a=" + user_a + "&user_b=" + user_b);
+                if (response.ToLower().Contains("true"))
+                { return true; }
+                else
+                { return false; }
+            }
+            catch
+            { return false; }
+        }
+
+        /*获取当前用户关注对象列表及最新一条微博信息  */
+        public List<User> statuses_friends(int count)
+        {
+            try
+            {
+                string url = "http://api.t.sina.com.cn/statuses/friends." + Format + "?";
+                string response = oAuthWebRequest(Method.GET, url, "cursor=1000&count=" + count);
+
+                var xmlDoc = new XmlDocument();
+                xmlDoc.LoadXml(response);
+                List<User> users = new List<User>();
+                XmlNodeList nodes = xmlDoc.GetElementsByTagName("user");
+                for (int i = 0; i < nodes.Count; i++)
+                {
+                    User u = new User();
+                    u.id = Convert.ToInt32(nodes[i].ChildNodes[0].InnerText);
+                    u.followers_count = Convert.ToInt32(nodes[i].ChildNodes[11].InnerText);
+                    u.friends_count = Convert.ToInt32(nodes[i].ChildNodes[12].InnerText);
+                    u.following = Convert.ToBoolean(nodes[i].ChildNodes[16].InnerText);
+                    users.Add(u);
+                }
+                return users;
+            }
+            catch
+            { return null; }
+        }
+
+        /*获取用户关注对象uid列表 */
+        public List<int> friends_ids(int user_id, int count)
         {
             try
             {
                 string url = "http://api.t.sina.com.cn/friends/ids." + Format + "?";
-                string response = oAuthWebRequest(Method.GET, url, "user_id=" + user_id);
+                string response = oAuthWebRequest(Method.GET, url, "count=" + count);
 
                 var xmlDoc = new XmlDocument();
                 xmlDoc.LoadXml(response);
@@ -274,7 +345,7 @@ namespace Sina.Api
                 xmlDoc.LoadXml(response);
                 List<int> ids = new List<int>();
                 XmlNodeList nodes = xmlDoc.GetElementsByTagName("id");
-                for(int i=0;i<nodes.Count;i++)
+                for (int i = 0; i < nodes.Count; i++)
                 {
                     ids.Add(Convert.ToInt32(nodes[i].InnerText));
                 }
