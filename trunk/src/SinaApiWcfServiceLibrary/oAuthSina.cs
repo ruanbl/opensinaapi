@@ -133,9 +133,9 @@ public class oAuthSina : oAuthBase
                         {
                             postData += "&";
                         }
-                        qs[key] = HttpUtility.UrlDecode(qs[key]);
+                        qs[key] = HttpUtility.UrlEncode(qs[key]);
                         qs[key] = this.UrlEncode(qs[key]);
-                        postData += key + "=" + qs[key];
+                        postData += (key + "=" + qs[key]);
 
                     }
                     if (url.IndexOf("?") > 0)

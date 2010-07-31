@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.Xml;
+using System.Web;
 namespace SinaApiWcfServiceLibrary
 {
     // 注意: 如果更改此处的类名 "SinaApiService"，也必须更新 Web.config 中对 "SinaApiService" 的引用。
@@ -165,7 +166,7 @@ namespace SinaApiWcfServiceLibrary
             if (oAuth(userid, passwd, _oauth))
             {
                 string url = "http://api.t.sina.com.cn/statuses/update." + format + "?";
-                return _oauth.oAuthWebRequest(oAuthSina.Method.POST, url, "status=" + _oauth.UrlEncode(status));
+                return _oauth.oAuthWebRequest(oAuthSina.Method.POST, url, "status=" + HttpUtility.UrlEncode(status));
             }
             else
                 return null;
