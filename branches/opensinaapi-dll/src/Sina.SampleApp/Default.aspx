@@ -12,7 +12,7 @@
         <asp:Button ID="BtnSina" runat="server" Text="与新浪微博连接" 
             onclick="BtnSina_Click" />
             <br />
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="未登录"></asp:Label>
     </div>
     </form>
 </body>
