@@ -35,9 +35,9 @@ namespace Sina.SampleApp
 
                     
                     //string y = api.user_timeline();
-                    //Api.User u = api.account_verify_credentials();
-                    //if (u != null)
-                    //{ Label1.Text = u.name; }
+                    Api.User u = api.account_verify_credentials();
+                    if (u != null)
+                    { Label1.Text = u.name; }
 
                     //api.statuses_update("test ~~");
 
