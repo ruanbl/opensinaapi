@@ -7,9 +7,10 @@
 
 ==关于新版功能说明：==
 
-    #1.重构oauthsina.cs,逻辑更清晰
-    #2.提供Oauth4Web和Oauth4Web的sample
-    #3.展示了oauth的过程，更方便开发者理解oauth协议
+    # 重构oauthsina.cs,逻辑更清晰
+    # 提供Oauth4Web和Oauth4Web的sample
+    # 展示了oauth的过程，更方便开发者理解oauth协议
+
 
 感谢你使用OpenSinaApi，如果有问题或建议请到项目主页留言。
 http://code.google.com/p/opensinaapi/
