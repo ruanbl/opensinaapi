@@ -12,6 +12,6 @@
     # 展示了oauth的过程，更方便开发者理解oauth协议
 
 
-感谢你使用OpenSinaApi，如果有问题或建议请到项目主页留言。
+感谢你使用Opensinaapi，如果有问题或建议请到项目主页留言。
 http://code.google.com/p/opensinaapi/
 # 或者联系作者：sarlmolapple@gmail.com QQ：274888283
