@@ -10,7 +10,8 @@
     # 重构oauthsina.cs,逻辑更清晰
     # 提供Oauth4web和Oauth4desktop的samples
     # 展示了oauth的过程，更方便开发者理解oauth协议
-
+==友情提示：==
+对于同一个应用，每个用户只需要进行一次oauth协议，获取token，tokensecret，保存起来，永久使用。
 
 感谢你使用Opensinaapi，如果有问题或建议请到项目主页留言。
 [http://code.google.com/p/opensinaapi/]
